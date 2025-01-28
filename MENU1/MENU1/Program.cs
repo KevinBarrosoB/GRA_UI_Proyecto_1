@@ -1,11 +1,13 @@
 ﻿using System;
+using MENU1;
+using static MENU1.espiral;
 
 class Program
 {
     static void Main(string[] args)
     {
         int opcion;
-
+        espiral co = new espiral();
         do
         {
             Console.Clear();
@@ -20,8 +22,15 @@ class Program
                 switch (opcion)
                 {
                     case 1:
-                        Console.WriteLine("Has seleccionado la Opción 1.");
-                        // Aquí puedes agregar el código para la opción 1
+                        int ver = 19;
+                        int hor = 75;
+                        int ancho = 2;
+                        int largo = 4;
+
+                        co.coor(hor, ver, ancho, largo);
+                        Console.SetCursorPosition(1, 38);
+                        Console.WriteLine("fin de la ejecucion");
+                        Console.ReadKey();
                         break;
                     case 2:
                         Console.WriteLine("Has seleccionado la Opción 2.");
