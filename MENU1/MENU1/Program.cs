@@ -6,6 +6,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        Program program = new Program();
+        program.menuprin();
+
+    }
+
+    public void menuprin()
+    {
         int ver = 19;
         int hor = 75;
         int ancho = 2;
@@ -20,9 +27,9 @@ class Program
             Console.SetCursorPosition(60, 15);
             Console.WriteLine("==== MENÚ DE OPCIONES ====");
             Console.SetCursorPosition(60, 17);
-            Console.WriteLine("1. Opción 1");
+            Console.WriteLine("1. Rectagulos");
             Console.SetCursorPosition(60, 19);
-            Console.WriteLine("2. Espiral de estasteriscos");
+            Console.WriteLine("2. Espiral");
             Console.SetCursorPosition(60, 21);
             Console.WriteLine("0. Salir");
             Console.SetCursorPosition(60, 23);
@@ -34,7 +41,7 @@ class Program
                 {
                     case 1:
                         Console.Clear();
-                        re.coor(hor, ver, ancho, largo);
+                        re.coor(hor-5, ver, ancho, largo);
                         Console.ReadKey();
                         break;
                     case 2:
@@ -44,6 +51,8 @@ class Program
                         break;
                     case 0:
                         Console.WriteLine("Saliendo del programa...");
+                        Environment.Exit(0);
+
                         break;
                     default:
                         Console.WriteLine("Opción no válida. Inténtelo nuevamente.");
@@ -63,5 +72,4 @@ class Program
 
         } while (opcion != 0);
     }
-
 }

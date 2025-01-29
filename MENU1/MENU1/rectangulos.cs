@@ -10,87 +10,86 @@ namespace MENU1
     internal class rectangulos
     {
         static ArrayList puntos = new ArrayList();
-
         public void coor(int hor, int ver, int ancho, int largo)
         {
+            int c = 1;
             imprimir_2 im = new imprimir_2();
-            puntos.Add(new Coordenada(hor, ver));
-            horizontalizprincipal(ver, hor, ancho, largo);
-            imprimir_2.colores(puntos, 1);
+            puntos.Add(new Coordenada(hor, ver, c));
+            horizontalizprincipal(ver, hor, ancho, largo, c);
+            imprimir_2.colores(puntos);
         }
-        public static void horizontalizprincipal(int hor, int ver, int ancho, int largo)
+        public static void horizontalizprincipal(int hor, int ver, int ancho, int largo, int c)
         {
+            int v = ver;
+            for (int i = ver+2 ; i >= ver - largo; i-=2)
+            {
+                puntos.Add(new Coordenada(i, hor, c));
+                v--;
+            }
+            horizontalde(hor - 2, v - 6, ancho, largo + 10,c+1);
+        }
+        public static void horizontaliz(int hor, int ver, int ancho, int largo,int c)
+        {
+            
             int v = ver;
             for (int i = ver - 1; i >= ver - largo; i--)
             {
-                puntos.Add(new Coordenada(i, hor));
+                puntos.Add(new Coordenada(i, hor, c));
                 v--;
             }
-            horizontalde(hor - 2, v - 6, ancho, largo + 12);
+            verticalar(hor - 1, v, ancho+2, largo,c);
         }
-        public static void horizontaliz(int hor, int ver, int ancho, int largo)
+        public static void verticalar(int hor, int ver, int ancho, int largo, int c)
         {
-            int v = ver;
-            for (int i = ver - 1; i >= ver - largo; i--)
-            {
-                puntos.Add(new Coordenada(i, hor));
-                v--;
-            }
-            verticalar(hor - 1, v, ancho+2, largo);
-        }
-        public static void verticalar(int hor, int ver, int ancho, int largo)
-        {
-            if (hor - ancho >= 8)
-            {
+            
                 int h = hor;
-                for (int i = hor; i > hor - ancho+2; i--)
+                for (int i = hor; i > hor - ancho+3; i--)
                 {
-                    puntos.Add(new Coordenada(ver, i));
+                    puntos.Add(new Coordenada(ver, i, c));
                     h--;
                 }
-                horizontalde(h + 1, ver-5, ancho+2 , largo+10);
-            }
-            else
-            {
-                for (int i = hor; i > 7; i--)
-                {
-                    puntos.Add(new Coordenada(ver, i));
-                }
-            }
+                horizontalde(h -1, ver-6, ancho-2 , largo+10,c+1);
+            
+            
         }
 
-        public static void horizontalde(int hor, int ver, int ancho, int largo)
+        public static void horizontalde(int hor, int ver, int ancho, int largo, int c)
         {
-            int v = ver;
-            for (int i = ver + 1; i <= ver + (largo+1); i++)
+            if (c <= 5)
             {
-                puntos.Add(new Coordenada(i, hor));
-                v++;
+                int v = ver;
+                for (int i = ver + 1; i <= ver + (largo + 1); i++)
+                {
+                    puntos.Add(new Coordenada(i, hor, c));
+                    v++;
+                }
+                verticalab(hor, v, ancho +3, largo, c);
             }
-            verticalab(hor, v, ancho+2, largo);
 
         }
 
-        public static void verticalab(int hor, int ver, int ancho, int largo)
+        public static void verticalab(int hor, int ver, int ancho, int largo, int c)
         {
             int h = hor;
             for (int i = hor + 1; i <= hor + ancho; i++)
             {
-                puntos.Add(new Coordenada(ver, i));
+                puntos.Add(new Coordenada(ver, i,c));
                 h++;
             }
-            horizontaliz(h, ver, ancho , largo);
+            horizontaliz(h, ver, ancho+1,largo,c);
 
         }
         public class Coordenada
         {
             public int Horizontal { get; set; }
             public int Vertical { get; set; }
+            public int C { get; set; }
 
-            public Coordenada(int horizontal, int vertical)
+            public Coordenada(int horizontal, int vertical, int c)
             {
                 Horizontal = horizontal;
                 Vertical = vertical;
+                C = c;
             }
         }
 
