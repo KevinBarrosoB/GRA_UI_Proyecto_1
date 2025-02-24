@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace MENU1
 {
-    internal class rectangulos
+    public class rectangulos
     {
         static ArrayList puntos = new ArrayList();
-        public void coor(int hor, int ver, int ancho, int largo)
+        public static void coor(int hor, int ver, int ancho, int largo)
         {
             int c = 1;
             imprimir_2 im = new imprimir_2();

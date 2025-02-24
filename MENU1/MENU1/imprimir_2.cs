@@ -9,10 +9,15 @@ using System.Linq;
 
 namespace MENU1
 {
+    
     internal class imprimir_2
     {
+        
         public static void colores(ArrayList list)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(63, 3);
+            Console.WriteLine("Rectangulos de colores");
             foreach (Coordenada punto in list)
             {
                 System.Threading.Thread.Sleep(100);
@@ -40,51 +45,7 @@ namespace MENU1
                 Console.SetCursorPosition(punto.Horizontal, punto.Vertical);
                 Console.WriteLine("*");
             }
-            menu_emergente();
+            tabla.menu_adicional(7,1);
         }
-        private static void menu_emergente()
-        {
-            Program program = new Program();
-            rectangulos rec = new rectangulos();    
-            int opcion;
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.SetCursorPosition(40, 29);
-            Console.WriteLine("Ingresa una opcion: 1)Regresar al menu principal 2)volver a ejecutar 3) salir ");
-            if (int.TryParse(Console.ReadLine(), out opcion))
-            {
-                switch (opcion)
-                {
-                    case 1:
-                        Console.Clear();
-                        program.menuprin();
-                        Console.ReadKey();
-                        break;
-                    case 2:
-                        Console.Clear();
-                        rec.coor(75, 10, 2, 4);
-                        Console.ReadKey();
-                        break;
-                    case 0:
-                        Console.WriteLine("Saliendo del programa...");
-                        Environment.Exit(0);
-
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida. Inténtelo nuevamente.");
-                        break;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Por favor, ingrese un número válido.");
-            }
-
-            if (opcion != 0)
-            {
-                Console.WriteLine("\nPresione cualquier tecla para continuar...");
-                Console.ReadKey();
-            }
-        }
-
     }
 }

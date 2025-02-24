@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MENU1
 {
-    internal class espiral
+    public class espiral
     {
         static ArrayList puntos = new ArrayList();
 
-        public void coor(int hor, int ver, int ancho, int largo)
+        public static void coor(int hor, int ver, int ancho, int largo)
         {
             imprimir im = new imprimir();
             puntos.Add(new Coordenada(hor, ver));

@@ -13,6 +13,9 @@ namespace MENU1
     {
         public static void colores(ArrayList list, int n)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(63, 3);
+            Console.WriteLine("Esperal de colores");
             foreach (Coordenada punto in list)
             {
                 System.Threading.Thread.Sleep(100);
@@ -44,55 +47,7 @@ namespace MENU1
                 Console.SetCursorPosition(punto.Horizontal, punto.Vertical);
                 Console.WriteLine("*");
             }
-            menu_emergente();
-        }
-
-        private static void menu_emergente()
-        {
-            Program program = new Program();
-            espiral ees= new espiral();
-            int opcion;
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.SetCursorPosition(60, 30);
-            Console.WriteLine("==== MENÚ DE EMERGENTE====");
-            Console.SetCursorPosition(60, 31);
-            Console.WriteLine("1)Regresar al menu principal 2)volver a ejecutar 3) salir ");
-            Console.SetCursorPosition(60, 32);
-            Console.Write("Seleccione una opción: ");
-            if (int.TryParse(Console.ReadLine(), out opcion))
-            {
-                switch (opcion)
-                {
-                    case 1:
-                        Console.Clear();
-                        program.menuprin();
-                        Console.ReadKey();
-                        break;
-                    case 2:
-                        Console.Clear();
-                        ees.coor(75, 10, 2, 4);
-                        Console.ReadKey();
-                        break;
-                    case 0:
-                        Console.WriteLine("Saliendo del programa...");
-                        Environment.Exit(0);
-
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida. Inténtelo nuevamente.");
-                        break;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Por favor, ingrese un número válido.");
-            }
-
-            if (opcion != 0)
-            {
-                Console.WriteLine("\nPresione cualquier tecla para continuar...");
-                Console.ReadKey();
-            }
+            tabla.menu_adicional(6,1);
         }
     }
 }
